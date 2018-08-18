@@ -48,4 +48,26 @@ class BvgController extends AbstractController
             'happening' => $happening
         ]);
     }
+
+    /**
+     * @Route("/bvg/data_output", name="dataOutput")
+     */
+    public function dataOutputAction()
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $incidents = $entityManager->getRepository(Incident::class)->findBy([],['timestamp' => 'DESC'],10);
+
+        $incidentsArray = [];
+
+        foreach ($incidents as $incident) {
+            $incidentsArray[] = [
+                'timestamp' => $incident->getTimestamp(),
+                'beaconId' => $incident->getBeaconId(),
+                'feeling' => $incident->getFeeling(),
+                'happening' => $incident->getHappening()
+            ];
+        }
+
+        return $this->json($incidentsArray);
+    }
 }
