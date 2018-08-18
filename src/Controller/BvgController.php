@@ -61,7 +61,7 @@ class BvgController extends AbstractController
 
         foreach ($incidents as $incident) {
             $incidentsArray[] = [
-                'timestamp' => $incident->getTimestamp(),
+                'timestamp' => $incident->getTimestamp()->format("c"),
                 'beaconId' => $incident->getBeaconId(),
                 'feeling' => $incident->getFeeling(),
                 'happening' => $incident->getHappening()
