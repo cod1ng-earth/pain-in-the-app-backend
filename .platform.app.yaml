@@ -18,9 +18,9 @@ variables:
 hooks:
     build: |
         bin/console --env=prod assets:install --no-debug
-        bin/console doctrine:migrations:migrate --no-interaction
         bin/console cache:clear
     deploy: |
+        bin/console doctrine:migrations:migrate --no-interaction
         bin/console cache:clear
 
 # The relationships of the application with services or other applications.
