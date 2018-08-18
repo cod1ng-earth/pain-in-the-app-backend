@@ -18,8 +18,9 @@ variables:
 hooks:
     build: |
         bin/console --env=prod assets:install --no-debug
+        bin/console cache:clear
     deploy: |
-        bin/console --env=prod cache:clear
+        bin/console cache:clear
 
 # The relationships of the application with services or other applications.
 # The left-hand side is the name of the relationship as it will be exposed
@@ -34,7 +35,7 @@ disk: 2048
 # The mounts that will be performed when the package is deployed.
 mounts:
     "/var/cache": "shared:files/cache"
-    "/var/logs": "shared:files/logs"
+    "/var/log": "shared:files/log"
     "/var/sessions": "shared:files/sessions"
 
 # The configuration of app when it is exposed to the web.

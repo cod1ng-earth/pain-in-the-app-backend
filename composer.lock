@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e9b3bd980a11d1dc71b7be08cf0a4b5",
+    "content-hash": "0563b25a41cb425713c74da388a445cb",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1336,6 +1336,47 @@
                 "service proxies"
             ],
             "time": "2017-05-04T11:12:50+00:00"
+        },
+        {
+            "name": "platformsh/symfonyflex-bridge",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/platformsh/symfonyflex-bridge.git",
+                "reference": "a9b1b99f563e8b18d74518d2fded8bfdc88abeb9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/platformsh/symfonyflex-bridge/zipball/a9b1b99f563e8b18d74518d2fded8bfdc88abeb9",
+                "reference": "a9b1b99f563e8b18d74518d2fded8bfdc88abeb9",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "platformsh-flex-env.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Larry Garfield",
+                    "email": "larry@platform.sh"
+                }
+            ],
+            "description": "Bridge library for running Symfony Flex on Platform.sh",
+            "time": "2018-06-20T21:35:38+00:00"
         },
         {
             "name": "psr/cache",
