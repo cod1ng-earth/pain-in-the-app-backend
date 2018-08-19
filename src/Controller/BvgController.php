@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Incident;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
@@ -16,7 +17,7 @@ class BvgController extends AbstractController
     public function index()
     {
         return $this->json([
-            'message' => 'Welcome to your new controller!',
+            'message' => 'Welcome to your new BVG-controller!',
             'path' => 'src/Controller/BvgController.php',
         ]);
     }
@@ -82,6 +83,20 @@ class BvgController extends AbstractController
         return $this->json($incidentsArray);
     }
 
+    /**
+     * @Route("/bvg/data_output/one_beacon", name="opt_DataOutputOneBeacon")
+     * @Method({"OPTIONS"})
+     */
+    public function optionsAction(Request $request)
+    {
+        $resp = new Response();
+        $resp->headers->add([
+            'Access-Control-Allow-Origin' => '*',
+            'Access-Control-Request-Method' => 'POST',
+            'Access-Control-Allow-Headers' => 'Content-Type'
+        ]);
+        return $resp;
+    }
     /**
      * @Route("/bvg/data_output/one_beacon", name="DataOutputOneBeacon")
      * @Method({"POST"})
