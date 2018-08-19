@@ -19,22 +19,27 @@ class IncidentRepository extends ServiceEntityRepository
         parent::__construct($registry, Incident::class);
     }
 
-//    /**
-//     * @return Incident[] Returns an array of Incident objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param $beaconId
+     * @return Incident[]
+     */
+    public function findByBeacon($beaconId)
     {
+        $startTime = new \DateTime();
+        $startTime->modify('-3 hour');
+
         return $this->createQueryBuilder('i')
-            ->andWhere('i.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('i.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('i.beaconId = :beaconId')
+            ->andWhere('i.timestamp > :startTime')
+            ->setParameter('beaconId', $beaconId)
+            ->setParameter('startTime', $startTime)
+            ->orderBy('i.timestamp', 'DESC')
+            ->setMaxResults(50)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Incident

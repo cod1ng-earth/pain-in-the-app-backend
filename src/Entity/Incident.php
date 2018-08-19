@@ -29,6 +29,16 @@ class Incident
     /**
      * @ORM\Column(type="string", length=255)
      */
+    private $trip;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $wagon;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $feeling;
 
     /**
@@ -85,6 +95,30 @@ class Incident
     public function setHappening(string $happening): self
     {
         $this->happening = $happening;
+
+        return $this;
+    }
+
+    public function getTrip(): ?string
+    {
+        return $this->trip;
+    }
+
+    public function setTrip(string $trip): self
+    {
+        $this->trip = $trip;
+
+        return $this;
+    }
+
+    public function getWagon(): ?string
+    {
+        return $this->wagon;
+    }
+
+    public function setWagon(string $wagon): self
+    {
+        $this->wagon = $wagon;
 
         return $this;
     }
