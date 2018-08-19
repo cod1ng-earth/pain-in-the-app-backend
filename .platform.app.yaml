@@ -48,6 +48,6 @@ web:
             # The front-controller script to send non-static requests to.
             passthru: "/index.php"
             headers:
-              Access-Control-Allow-Origin: *
-              X-Frame-Options: SAMEORIGIN
+              "Access-Control-Allow-Origin": "*"
+              "X-Frame-Options": "SAMEORIGIN"
 
